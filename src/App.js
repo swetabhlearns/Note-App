@@ -27,15 +27,13 @@ function App() {
 
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
-    if (savedNotes.length) {
+    if (savedNotes && savedNotes.length) {
       setNotes(savedNotes);
-      console.log(savedNotes);
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
-    console.log("RAN", notes);
   }, [notes]);
 
   return (
